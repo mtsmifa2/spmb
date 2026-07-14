@@ -148,15 +148,18 @@
   <div id="mainApp" class="d-none">
     <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
     
-    <!-- Sidebar -->
+<!-- Sidebar -->
     <div class="sidebar d-flex flex-column">
+      
+      <!-- Bagian Header Sidebar & Logo -->
       <div class="p-4 text-center border-bottom">
-        <!-- Tambahan Logo Sekolah -->
         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBokHwR9gPy_OAyb-7FuahBc4X-qPPR91bWluROP_2oJP0nexyJmGRzWmYSknQe5tBedo9RBwQOaHsaeYNz8FaBSWycsYG9P1D2OPTeEGRRlBlcwKDKg0gYg8EkdEZHRwAw_ryRjidMIYQVuYiyBbrFCz1T5VQc829Krm2TCKSYEXKKwEmbcLN-1zmUTaH/w186-h232/LOGO%20MTS2%20copy.png" width="60" class="mb-2" alt="Logo MTs">
-        
         <h5 class="fw-bold mb-0" style="color: var(--primary);">SPMB <span style="color: var(--accent);">Online</span></h5>
         <small class="text-muted fw-bold d-block mt-1" style="font-size: 11px;">MTs MIFTAHUL FALAH 2</small>
       </div>
+
+      <!-- Bagian Menu -->
+      <div class="flex-grow-1 py-3">
         <!-- Menu Admin -->
         <div id="menuAdmin" class="d-none">
           <small class="px-4 text-muted fw-bold mb-2 d-block" style="font-size:11px;">ADMIN PANEL</small>
@@ -173,6 +176,7 @@
         </div>
       </div>
       
+      <!-- Bagian Profil & Logout -->
       <div class="p-3 border-top text-center">
         <div class="mb-2">
           <small class="text-muted d-block">Masuk sebagai:</small>
@@ -181,7 +185,9 @@
         </div>
         <button class="btn btn-sm btn-outline-danger w-100" onclick="logout()"><i class="fa-solid fa-power-off"></i> Keluar</button>
       </div>
+
     </div>
+    <!-- Akhir Sidebar -->
 
     <!-- Content -->
     <div class="main-content">
