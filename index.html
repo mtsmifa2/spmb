@@ -880,11 +880,14 @@
 
             <h6 class="fw-bold text-primary border-bottom pb-2 mt-3">2. Data Ayah & Ibu</h6>
             <table class="table table-sm table-borderless small">
-              <tr><td width="35%" class="text-muted">NIK Ayah</td><td>: <span class="fw-bold font-monospace">${item.nik_ayah || '-'}</span></td></tr>
+              <tr><td width="35%" class="text-muted">Nama Ayah</td><td class="fw-bold">: ${item.nama_ayah || '-'}</td></tr>
+              <tr><td class="text-muted">NIK Ayah</td><td>: <span class="fw-bold font-monospace">${item.nik_ayah || '-'}</span></td></tr>
               <tr><td class="text-muted">TTL Ayah</td><td>: ${item.tempat_lahir_ayah || '-'}, ${item.tanggal_lahir_ayah || '-'}</td></tr>
               <tr><td class="text-muted">Pendidikan Ayah</td><td>: ${item.pendidikan_ayah || '-'}</td></tr>
               <tr><td class="text-muted">Pekerjaan / Gaji</td><td>: ${item.pekerjaan_ayah || '-'} (${item.penghasilan_ayah || '-'})</td></tr>
-              <tr><td class="text-muted pt-3">NIK Ibu</td><td class="pt-3">: <span class="fw-bold font-monospace">${item.nik_ibu || '-'}</span></td></tr>
+              
+              <tr><td class="text-muted pt-3">Nama Ibu</td><td class="pt-3 fw-bold">: ${item.nama_ibu || '-'}</td></tr>
+              <tr><td class="text-muted">NIK Ibu</td><td>: <span class="fw-bold font-monospace">${item.nik_ibu || '-'}</span></td></tr>
               <tr><td class="text-muted">TTL Ibu</td><td>: ${item.tempat_lahir_ibu || '-'}, ${item.tanggal_lahir_ibu || '-'}</td></tr>
               <tr><td class="text-muted">Pendidikan Ibu</td><td>: ${item.pendidikan_ibu || '-'}</td></tr>
               <tr><td class="text-muted">Pekerjaan / Gaji</td><td>: ${item.pekerjaan_ibu || '-'} (${item.penghasilan_ibu || '-'})</td></tr>
@@ -1115,6 +1118,10 @@
               <div class="section-title">2. Data Ayah Kandung</div>
               <div class="row g-3">
                 <div class="col-md-12">
+                  <label class="form-label small fw-semibold">Nama Ayah *</label>
+                  <input type="text" id="inNamaAyah" class="form-control" value="${myData.nama_ayah || ''}" required>
+                </div>
+                <div class="col-md-12">
                   <label class="form-label small fw-semibold">NIK Ayah *</label>
                   <input type="text" id="inNikAyah" class="form-control" value="${myData.nik_ayah || ''}" inputmode="numeric" maxlength="16" oninput="this.value=this.value.replace(/[^0-9]/g,'');" placeholder="16 Digit Angka" required>
                 </div>
@@ -1152,6 +1159,10 @@
               <!-- BAGIAN 3: DATA IBU -->
               <div class="section-title">3. Data Ibu Kandung</div>
               <div class="row g-3">
+                <div class="col-md-12">
+                  <label class="form-label small fw-semibold">Nama Ibu *</label>
+                  <input type="text" id="inNamaIbu" class="form-control" value="${myData.nama_ibu || ''}" required>
+                </div>
                 <div class="col-md-12">
                   <label class="form-label small fw-semibold">NIK Ibu *</label>
                   <input type="text" id="inNikIbu" class="form-control" value="${myData.nik_ibu || ''}" inputmode="numeric" maxlength="16" oninput="this.value=this.value.replace(/[^0-9]/g,'');" placeholder="16 Digit Angka" required>
@@ -1292,12 +1303,14 @@
         jumlah_saudara: document.getElementById('inJmlSaudara').value,
         asal: document.getElementById('inAsal').value,
         npsn_sekolah: npsnValue,
+        nama_ayah: document.getElementById('inNamaAyah').value,
         nik_ayah: nikAyah,
         tempat_lahir_ayah: document.getElementById('inTempatAyah').value,
         tanggal_lahir_ayah: formattedDateAyah,
         pekerjaan_ayah: document.getElementById('inPekAyah').value,
         pendidikan_ayah: document.getElementById('inPendAyah').value,
         penghasilan_ayah: document.getElementById('inPengAyah').value,
+        nama_ibu: document.getElementById('inNamaIbu').value,
         nik_ibu: nikIbu,
         tempat_lahir_ibu: document.getElementById('inTempatIbu').value,
         tanggal_lahir_ibu: formattedDateIbu,
