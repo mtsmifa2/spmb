@@ -1341,7 +1341,7 @@
           let fileEl = document.getElementById(c.el);
           if (fileEl && fileEl.files.length > 0) {
             let file = fileEl.files[0];
-            if (file.size > 2 * 1024 * 1024) throw new Error("Ukuran file melebihi batas 2MB!");
+            if (file.size > 10 * 1024 * 1024) throw new Error("Ukuran file melebihi batas 10MB!");
             
             let p = new Promise((resolve) => {
               let fr = new FileReader();
