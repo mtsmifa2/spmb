@@ -279,7 +279,7 @@
   <!-- CUSTOM SCRIPTS -->
   <script>
     // MASUKKAN URL WEB APP GAS ANDA DI SINI
-    const API_URL = "https://script.google.com/macros/s/AKfycbxcqLbXWy0BN24Td4AzDK75R-IDmj5LGUnsY5qH3deYXks-0EG0dMuio3xc7fsGpBPF8Q/exec"; // <-- GANTI DENGAN URL EXEC ANDA YANG SEBENARNYA
+    const API_URL = "https://script.google.com/macros/s/AKfycbykIsPcv9Ic2Brc08U1U8sjeVkhUxu-CVSQDQecD8ZvZ1n0jfq7YfC24avPC4w2yj8hCw/exec"; // <-- GANTI DENGAN URL EXEC ANDA YANG SEBENARNYA
 
     // GLOBAL STATE
     var currentUser = null;
@@ -869,7 +869,7 @@
               <tr><td class="text-muted">NIK Siswa</td><td>: <span class="fw-bold font-monospace">${item.nik_siswa || '-'}</span></td></tr>
               <tr><td class="text-muted">NISN</td><td>: <span class="fw-bold font-monospace">${item.nisn}</span></td></tr>
               <tr><td class="text-muted">TTL</td><td>: ${item.tempat}, ${item.tanggal}</td></tr>
-              <tr><td class="text-muted">Alamat</td><td>: ${item.alamat || '-'}, RT/RW ${item.rt_rw || '-'}</td></tr>
+              <tr><td class="text-muted">Alamat</td><td>: ${item.alamat || '-'}, RT ${item.rt || '-'} / RW ${item.rw || '-'}</td></tr>
               <tr><td class="text-muted"></td><td>&nbsp; Desa ${item.desa || '-'}, Kec. ${item.kecamatan || '-'}</td></tr>
               <tr><td class="text-muted"></td><td>&nbsp; Kab. ${item.kabupaten || '-'}, ${item.provinsi || '-'}</td></tr>
               <tr><td class="text-muted">Asal Sekolah</td><td>: ${item.asal}</td></tr>
@@ -972,7 +972,7 @@
               <div class="col-sm-6 mb-2"><small class="text-muted d-block">Tipe</small><b>${myData.tipe}</b></div>
               <div class="col-sm-6 mb-2"><small class="text-muted d-block">NISN / NIK Siswa</small><b class="font-monospace">${myData.nisn} / ${myData.nik_siswa || '-'}</b></div>
               <div class="col-sm-12 mb-2"><small class="text-muted d-block">Nama Lengkap</small><b>${myData.nama}</b></div>
-              <div class="col-sm-12 mb-2"><small class="text-muted d-block">Alamat</small><b>${myData.alamat || '-'}, RT/RW ${myData.rt_rw || '-'}, Desa ${myData.desa || '-'}, Kec. ${myData.kecamatan || '-'}</b></div>
+              <div class="col-sm-12 mb-2"><small class="text-muted d-block">Alamat</small><b>${myData.alamat || '-'}, RT. ${myData.rt || '-'} RW. ${myData.rw || '-'} Desa ${myData.desa || '-'} Kec. ${myData.kecamatan || '-'}</b></div>
             </div>
             ${myData.status === 'Disetujui' ? `<button class="btn btn-primary-custom mt-3 w-100" onclick="window.print()"><i class="fa-solid fa-print"></i> Cetak Bukti Pendaftaran</button>` : ''}
           </div>
@@ -1060,9 +1060,13 @@
                   <label class="form-label small fw-semibold">Alamat (Kp./Jl.) *</label>
                   <input type="text" id="inAlamat" class="form-control" value="${myData.alamat || ''}" placeholder="Contoh: Jl. Merdeka No. 10" required>
                 </div>
-                <div class="col-md-4">
-                  <label class="form-label small fw-semibold">RT/RW *</label>
-                  <input type="text" id="inRtRw" class="form-control" value="${myData.rt_rw || ''}" placeholder="Contoh: 001/002" required>
+                <div class="col-md-2">
+                  <label class="form-label small fw-semibold">RT *</label>
+                  <input type="text" id="inRt" class="form-control" value="${myData.rt || ''}" inputmode="numeric" oninput="this.value=this.value.replace(/[^0-9]/g,'');" placeholder="001" maxlength="3" required>
+                </div>
+                <div class="col-md-2">
+                  <label class="form-label small fw-semibold">RW *</label>
+                  <input type="text" id="inRw" class="form-control" value="${myData.rw || ''}" inputmode="numeric" oninput="this.value=this.value.replace(/[^0-9]/g,'');" placeholder="002" maxlength="3" required>
                 </div>
                 <div class="col-md-6">
                   <label class="form-label small fw-semibold">Desa / Kelurahan *</label>
@@ -1292,7 +1296,8 @@
         tempat: document.getElementById('inTempat').value,
         tanggal: formattedDate,
         alamat: document.getElementById('inAlamat').value,
-        rt_rw: document.getElementById('inRtRw').value,
+        rt: document.getElementById('inRt').value,
+        rw: document.getElementById('inRw').value,
         desa: document.getElementById('inDesa').value,
         kecamatan: document.getElementById('inKec').value,
         kabupaten: document.getElementById('inKab').value,
